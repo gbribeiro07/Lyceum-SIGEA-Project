@@ -5,7 +5,7 @@ import { registerUser } from "../../Services/User.Api";
 import { verifyEmailUser } from "../../Services/User.Api";
 
 const FormContainer = styled.form`
-  background-color: #3a322d;
+  background-color: #000000;
   padding: 70px;
   border-radius: 10px;
   width: 600px;
@@ -42,7 +42,7 @@ const SubmitButton = styled.button`
   margin-top: 10px;
   margin-bottom: 0;
   padding: 10px;
-  background-color: #00cc66;
+  background-color: #ff8c00;
   color: white;
   font-weight: bold;
   border: none;
@@ -51,7 +51,7 @@ const SubmitButton = styled.button`
   text-decoration: none;
 
   &:hover {
-    background-color: #00994d;
+    background-color: #ffa12f;
   }
 `;
 
@@ -60,7 +60,7 @@ const BackLink = styled(Link)`
   margin-top: 20px;
   margin-bottom: -10px;
   font-size: 14px;
-  color: black;
+  color: #ff8c00;
   text-decoration: none;
   font-weight: bold;
 
@@ -70,7 +70,7 @@ const BackLink = styled(Link)`
 
   &:hover {
     text-decoration: underline;
-    color: blueviolet;
+    color: #ffa12f;
   }
 `;
 
@@ -139,7 +139,7 @@ const CodeSubButton = styled.button`
   margin-top: 5vh;
   margin-left: 25vw;
   padding: 10px;
-  background-color: #00cc66;
+  background-color: #ff8c00;
   color: white;
   font-weight: bold;
   font-family: Arial, sans-serif;
@@ -149,7 +149,7 @@ const CodeSubButton = styled.button`
   text-decoration: none;
 
   &:hover {
-    background-color: #00994d;
+    background-color: #ffa12f;
   }
 
   @media (max-width: 1800px) {

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { loginUser } from "../../Services/Auth.Api";
 
 const FormContainer = styled.div`
-  background-color: #3a322d;
+  background-color: #000000;
   padding: 70px;
   border-radius: 10px;
   width: 600px;
@@ -39,7 +39,7 @@ const SubmitButton = styled.button`
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #00cc66;
+  background-color: #ff8c00;
   color: white;
   font-weight: bold;
   border: none;
@@ -47,7 +47,7 @@ const SubmitButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #00994d;
+    background-color: #ffa12f;
   }
 `;
 
@@ -58,7 +58,7 @@ const RegisterLink = styled.p`
 `;
 
 const StyledLink = styled(Link)`
-  color: blue;
+  color: #ff8c00;
   font-weight: bold;
   text-decoration: none;
   &:hover {
@@ -71,13 +71,13 @@ const BackLink = styled(Link)`
   margin-top: 20px;
   font-size: 14px;
   font-weight: bold;
-  color: black;
+  color: #ff8c00;
   &:before {
     content: "← ";
   }
   &:hover {
     text-decoration: underline;
-    color: blueviolet;
+    color: #ffb151;
   }
 `;
 
