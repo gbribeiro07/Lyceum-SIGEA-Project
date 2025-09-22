@@ -16,10 +16,12 @@ import HTitle from "./Components/Home/HTitle";
 import HB1 from "./Components/Home/HB1";
 import HB2 from "./Components/Home/HB2";
 import HB3 from "./Components/Home/HB3";
+import GlobalStyle from "../GlobalStyle";
 
 export default function Presentation() {
   return (
     <>
+      <GlobalStyle />
       <PHeader>
         <PTitle>Lyceum</PTitle>
         <SignUpTxt>Cadastrar-se</SignUpTxt>

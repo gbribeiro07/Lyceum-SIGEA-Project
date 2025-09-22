@@ -40,7 +40,7 @@ export default function PBottomComponent() {
           "O verdadeiro conhecimento é aquele que nos torna melhores educadores 
           e seres humanos. O Lyceum está aqui para apoiar essa jornada."
         </FooterText>
-        <Copyright>© 2024 LYCEUM - SISTEMA DE GESTÃO ACADÊMICA</Copyright>
+        <Copyright>© 2025 LYCEUM - SISTEMA DE GESTÃO ACADÊMICA</Copyright>
       </FooterContent>
     </PBottom>
   );
