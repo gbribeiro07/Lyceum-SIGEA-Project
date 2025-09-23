@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden; /* 🔥 IMPORTANTE para evitar scroll horizontal */
+    overflow-x: hidden
   }
 
   /* Remove a margem padrão do navegador */

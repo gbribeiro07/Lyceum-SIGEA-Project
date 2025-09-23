@@ -5,7 +5,7 @@ import { getUser } from "../../Services/User.Api";
 const HB1Container = styled.div`
   background-color: #000000;
   display: flex;
-  width: 101.05%;
+  width: 100%;
   height: 1158px;
   margin-top: 0;
   margin-left: -8px;
