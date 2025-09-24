@@ -14,8 +14,6 @@ import Header from "./Components/Home/Header";
 import HMenu from "./Components/Home/HMenu";
 import HTitle from "./Components/Home/HTitle";
 import HB1 from "./Components/Home/HB1";
-import HB2 from "./Components/Home/HB2";
-import HB3 from "./Components/Home/HB3";
 import GlobalStyle from "../GlobalStyle";
 
 export default function Presentation() {
@@ -63,8 +61,6 @@ export function Home() {
         <HTitle>Lyceum</HTitle>
       </Header>
       <HB1 />
-      <HB2 />
-      <HB3 />
     </>
   );
 }

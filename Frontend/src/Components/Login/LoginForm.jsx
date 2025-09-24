@@ -3,52 +3,68 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { loginUser } from "../../Services/Auth.Api";
 
-const FormContainer = styled.div`
-  
-  background-color: #000000;
-  padding: 70px;
-  border-radius: 10px;
-  width: 600px;
+const FormContainer = styled.form`
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(244, 232, 0, 0.2);
+  padding: 50px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  margin: 100px auto;
   text-align: center;
-  color: white;
-  font-family: Arial, sans-serif;
-  margin: auto;
-  margin-top: 100px;
+  color: #fff;
+  font-family: 'Georgia', serif;
+  backdrop-filter: blur(8px);
 `;
 
 const Title = styled.h2`
-  font-weight: bold;
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: #f4e800;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
 `;
 
 const Label = styled.label`
   display: block;
   margin: 15px 0 5px;
-  font-weight: bold;
+  font-weight: 300;
   text-align: left;
+  color: rgba(255, 255, 255, 0.8);
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #d3d3d3;
+  padding: 12px 15px;
+  border: 1px solid #f4e800;
+  border-radius: 6px;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
 `;
 
 const SubmitButton = styled.button`
-  margin-top: 20px;
-  display: block;
   width: 100%;
-  padding: 10px;
-  background-color: #ff8c00;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
+  padding: 12px;
+  background: transparent;
+  color: #f4e800;
+  border: 2px solid #f4e800;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 2px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border-radius: 6px;
 
   &:hover {
-    background-color: #ffa12f;
+    background: #f4e800;
+    color: #000;
   }
 `;
 
@@ -70,15 +86,18 @@ const StyledLink = styled(Link)`
 const BackLink = styled(Link)`
   display: block;
   margin-top: 20px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #ff8c00;
+  font-size: 0.9rem;
+  color: #f4e800;
+  text-decoration: none;
+  font-weight: 300;
+
   &:before {
     content: "← ";
   }
+
   &:hover {
     text-decoration: underline;
-    color: #ffb151;
+    color: #fff200;
   }
 `;
 

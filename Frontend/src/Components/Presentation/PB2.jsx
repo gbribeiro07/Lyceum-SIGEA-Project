@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import studyIcon from "../../assets/icon.png";
 
 const PB2 = styled.div`
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
@@ -62,15 +63,20 @@ const FeatureItem = styled.li`
 `;
 
 const ImagePlaceholder = styled.div`
-  background: linear-gradient(135deg, #000 0%, #333 100%);
   height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f4e800;
-  font-size: 1.5rem;
-  font-weight: 300;
   letter-spacing: 2px;
+`;
+
+const StyledImage = styled.img`
+  width: 80%;
+  position: relative;
+  height: auto;
+
+  border-radius: 12px;
+
 `;
 
 export default function PB2Component() {
@@ -92,7 +98,7 @@ export default function PB2Component() {
           </FeatureList>
         </TextContent>
         <ImagePlaceholder>
-          VISUAL DA PLATAFORMA
+        <StyledImage src={studyIcon} alt="icon" />
         </ImagePlaceholder>
       </ContentWrapper>
     </PB2>

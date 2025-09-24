@@ -11,7 +11,7 @@ const Header = styled.header`
   width: 100%;
   margin: 0;  
   box-sizing: border-box;
-  margin-left: -8px;
+  // margin-left: -8px;
   /* margin-right: -100px; */
   margin-top: -9px;
   z-index: 1000;  

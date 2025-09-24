@@ -7,7 +7,7 @@ const PB1 = styled.div`
   background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
   align-items: center;
   justify-content: center;
-  width: 101%;
+  width: 100%;
   height: 100vh;
   min-height: 800px;
   position: relative;
