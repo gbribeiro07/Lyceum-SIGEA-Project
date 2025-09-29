@@ -65,11 +65,15 @@ export function SignUp() {
 export function Home() {
   return (
     <>
+     <div style={{ backgroundColor: '#000', minHeight: '100vh' }}>
+      
       <Header>
         <HTitle>Lyceum</HTitle>
         <Nav />
       </Header>
       <Turmas />
+      
+     </div>
     </>
   );
 }
@@ -90,11 +94,13 @@ export function Professores () {
 export function CalendarioPage () {
   return (
     <>
-      <Header>
+        <div style={{ backgroundColor: '#000', minHeight: '100vh' }}>
+        <Header>
         <HTitle>Calendário</HTitle>
         <NavCalendario />
       </Header>
       <Calendario />
+        </div>
     </>
   )
 }

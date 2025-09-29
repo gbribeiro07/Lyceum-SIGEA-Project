@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     width: 100%;
     overflow-x: hidden
+    background-color: #121212;
    
   }
 

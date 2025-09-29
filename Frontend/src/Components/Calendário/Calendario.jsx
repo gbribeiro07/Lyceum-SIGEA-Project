@@ -8,6 +8,8 @@ const meses = [
   'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
 ];
 
+const diasSemana = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+
 const Calendario = () => {
   const [mesAtual, setMesAtual] = useState(new Date().getMonth());
   const [anoAtual, setAnoAtual] = useState(new Date().getFullYear());
@@ -35,14 +37,45 @@ const Calendario = () => {
   };
 
   const diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
+  const primeiroDiaSemana = new Date(anoAtual, mesAtual, 1).getDay();
 
   return (
-    <div>
-      <h2>Calendário de {meses[mesAtual]} {anoAtual}</h2>
-      <button onClick={() => setMesAtual((mesAtual + 11) % 12)}>←</button>
-      <button onClick={() => setMesAtual((mesAtual + 1) % 12)}>→</button>
+    <div style={{
+      maxWidth: '900px',
+      margin: '3rem auto',
+      padding: '2rem',
+      backgroundColor: '#1a1a1a',
+      borderRadius: '16px',
+      boxShadow: '0 0 20px rgba(244, 232, 0, 0.15)',
+      color: '#fff',
+      fontFamily: 'Georgia, serif'
+    }}>
+      <h2 style={{ textAlign: 'center', color: '#f4e800', marginBottom: '1rem' }}>
+        Calendário de {meses[mesAtual]} {anoAtual}
+      </h2>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '0.5rem', marginTop: '1rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '1rem' }}>
+        <button style={navBtnStyle} onClick={() => setMesAtual((mesAtual + 11) % 12)}>←</button>
+        <button style={navBtnStyle} onClick={() => setMesAtual((mesAtual + 1) % 12)}>→</button>
+      </div>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(7, 1fr)',
+        textAlign: 'center',
+        marginBottom: '0.5rem',
+        color: '#f4e800',
+        fontWeight: 'bold'
+      }}>
+        {diasSemana.map((dia, i) => (
+          <div key={i}>{dia}</div>
+        ))}
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '0.5rem' }}>
+        {Array(primeiroDiaSemana).fill(null).map((_, i) => (
+          <div key={`empty-${i}`} />
+        ))}
         {[...Array(diasNoMes)].map((_, i) => (
           <DiaCalendario
             key={i}
@@ -67,6 +100,16 @@ const Calendario = () => {
       <ListaEventos eventos={eventos} mesAtual={mesAtual} />
     </div>
   );
+};
+
+const navBtnStyle = {
+  background: 'transparent',
+  color: '#f4e800',
+  border: '2px solid #f4e800',
+  padding: '6px 12px',
+  borderRadius: '6px',
+  cursor: 'pointer',
+  fontFamily: 'Georgia, serif'
 };
 
 export default Calendario;

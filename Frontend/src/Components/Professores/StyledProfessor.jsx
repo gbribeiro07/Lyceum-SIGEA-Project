@@ -111,23 +111,13 @@ export const ListaDeProfessores = styled.h2`
 `;
 
 export const AddButton = styled.button`
-  background: transparent;
-  color: #f4e800;
-  border: 2px solid #f4e800;
+  font-size: 24px;
+  background-color: #f4e800;
+  border: none;
   border-radius: 50%;
-  padding: 12px 30px;
-  font-size: 1rem;
-  font-weight: 300;
-  letter-spacing: 1px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-
-  &:hover {
-    background: #f4e800;
-    color: #000;
-  }
 `;
 
 export const CardGrid = styled.div`

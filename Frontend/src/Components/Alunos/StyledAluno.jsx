@@ -17,7 +17,7 @@ export const CardAluno = styled.div`
 `;
 
 export const ModalAluno = styled.div`
-  background: #ffffff;
+  background: #272727ff;
   border: 1px solid #f4e800;
   border-radius: 12px;
   padding: 30px;
@@ -31,9 +31,9 @@ export const Input = styled.input`
   width: 100%;
   padding: 10px;
   margin-top: 10px;
-  background: #f8f9fa;
-  border: 1px solid #ccc;
-  color: #333;
+  background: #242020ff;
+  border: 1px solid #f4e800;
+  color: #ffff;
   border-radius: 6px;
 `;
 
