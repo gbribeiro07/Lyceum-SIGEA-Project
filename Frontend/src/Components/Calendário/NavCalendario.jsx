@@ -22,7 +22,7 @@ export default function Nav() {
     <NavContainer>
       <NavLink to="/professores">Professores</NavLink>
       <NavLink to="/alunos">Alunos</NavLink>
-      <NavLink to="/calendario">Calendário</NavLink>
+      <NavLink to="/home">Home</NavLink>
     </NavContainer>
   );
 }

@@ -18,6 +18,15 @@ import GlobalStyle from "../GlobalStyle";
 import Nav from "./Components/Home/Nav";
 import Turmas from "./Components/Home/Turmas";
 
+import NavProf from "./Components/Professores/NavProf";
+import ProfessoresHeader from "./Components/Professores/ProfessoresHeader";
+import ProfessoresBody from "./Components/Professores/ProfessoresBody";
+
+import Calendario from "./Components/Calendário/Calendario";
+import NavCalendario from "./Components/Calendário/NavCalendario";
+
+import Alunos from "./Components/Alunos/Alunos";
+import NavAlunos from "./Components/Alunos/NavAlunos";
 
 export default function Presentation() {
   return (
@@ -57,12 +66,47 @@ export function Home() {
   return (
     <>
       <Header>
-          <img src="path/to/logo.png" alt="Logo" />{" "}
         <HTitle>Lyceum</HTitle>
         <Nav />
       </Header>
-      <HB1 />
       <Turmas />
+    </>
+  );
+}
+
+export function Professores () {
+  return (
+    <>
+      <ProfessoresHeader>
+        <HTitle>Professores</HTitle>
+        <NavProf />
+      </ProfessoresHeader>
+      <ProfessoresBody />
+
+    </>
+  )
+}
+
+export function CalendarioPage () {
+  return (
+    <>
+      <Header>
+        <HTitle>Calendário</HTitle>
+        <NavCalendario />
+      </Header>
+      <Calendario />
+    </>
+  )
+}
+
+export function AlunosPage() {
+  return (
+    <>
+      <Header>
+        <HTitle>Alunos</HTitle>
+        <NavAlunos />
+      </Header>
+      <Alunos />
     </>
   );
 }

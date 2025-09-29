@@ -20,7 +20,7 @@ const NavLink = styled(Link)`
 export default function Nav() {
   return (
     <NavContainer>
-      <NavLink to="/professores">Professores</NavLink>
+      <NavLink to="/home">Home</NavLink>
       <NavLink to="/alunos">Alunos</NavLink>
       <NavLink to="/calendario">Calendário</NavLink>
     </NavContainer>

@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     width: 100%;
     overflow-x: hidden
+   
   }
 
   /* Remove a margem padrão do navegador */
