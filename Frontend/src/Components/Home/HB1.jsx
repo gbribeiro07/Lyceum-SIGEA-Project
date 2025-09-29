@@ -92,44 +92,7 @@ const TaskStatus = styled.span`
 export default function HomePage() {
   return (
     <PageWrapper>
-      <SectionTitle>Aulas</SectionTitle>
-      <Grid>
-        <Card>
-          <CardTitle>Matemática Aplicada</CardTitle>
-          <CardText>Segundas e Quartas - 10h às 12h</CardText>
-        </Card>
-        <Card>
-          <CardTitle>História da Educação</CardTitle>
-          <CardText>Terças - 14h às 16h</CardText>
-        </Card>
-        <Card>
-          <CardTitle>Gestão de Projetos</CardTitle>
-          <CardText>Quintas - 8h às 10h</CardText>
-        </Card>
-      </Grid>
-
-      <SectionTitle>Agenda</SectionTitle>
-      <AgendaWrapper>
-        <AgendaItem>📌 Reunião com orientador – Terça, 15h</AgendaItem>
-        <AgendaItem>📌 Apresentação de seminário – Quarta, 10h</AgendaItem>
-        <AgendaItem>📌 Prazo para entrega de relatório – Sexta, 23h59</AgendaItem>
-      </AgendaWrapper>
-
-      <SectionTitle>Tarefas</SectionTitle>
-      <TaskList>
-        <TaskItem>
-          <span>Finalizar resumo de artigo</span>
-          <TaskStatus>Pendente</TaskStatus>
-        </TaskItem>
-        <TaskItem>
-          <span>Enviar atividade de matemática</span>
-          <TaskStatus>Concluído</TaskStatus>
-        </TaskItem>
-        <TaskItem>
-          <span>Estudar para prova de gestão</span>
-          <TaskStatus>Em andamento</TaskStatus>
-        </TaskItem>
-      </TaskList>
+      <SectionTitle>Turmas</SectionTitle>
     </PageWrapper>
   );
 }

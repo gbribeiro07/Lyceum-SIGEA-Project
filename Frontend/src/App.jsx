@@ -11,10 +11,13 @@ import PBottom from "./Components/Presentation/PBottom";
 import LoginPage from "./Components/Login/LoginPage";
 import SignUpPage from "./Components/SignUp/SignUpPage";
 import Header from "./Components/Home/Header";
-import HMenu from "./Components/Home/HMenu";
+
 import HTitle from "./Components/Home/HTitle";
 import HB1 from "./Components/Home/HB1";
 import GlobalStyle from "../GlobalStyle";
+import Nav from "./Components/Home/Nav";
+import Turmas from "./Components/Home/Turmas";
+
 
 export default function Presentation() {
   return (
@@ -54,13 +57,12 @@ export function Home() {
   return (
     <>
       <Header>
-        <HMenu>
           <img src="path/to/logo.png" alt="Logo" />{" "}
-          {/* Caminho da sua imagem */}
-        </HMenu>
         <HTitle>Lyceum</HTitle>
+        <Nav />
       </Header>
       <HB1 />
+      <Turmas />
     </>
   );
 }
