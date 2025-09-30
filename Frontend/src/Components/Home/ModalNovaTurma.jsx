@@ -1,11 +1,15 @@
 import { useState } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+import { RegisterClassroom } from "../../Services/Classrooms.Api";
 
 const Overlay = styled.div`
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
@@ -20,7 +24,7 @@ const Modal = styled.div`
   padding: 30px;
   width: 320px;
   color: #fff;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
   box-shadow: 0 0 20px rgba(244, 232, 0, 0.2);
 `;
 
@@ -37,7 +41,7 @@ const Input = styled.input`
   border: 1px solid #f4e800;
   color: #fff;
   border-radius: 6px;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
 `;
 
 const ButtonGroup = styled.div`
@@ -53,33 +57,88 @@ const Button = styled.button`
   padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
   transition: 0.3s ease;
 
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   &:hover {
-    background-color: #f4e800;
-    color: #000;
+    background-color: ${(props) =>
+      props.disabled ? "transparent" : "#f4e800"};
+    color: ${(props) => (props.disabled ? "#f4e800" : "#000")};
   }
 `;
 
 export default function ModalNovaTurma({ onConfirm, onClose }) {
   const [nomeTurma, setNomeTurma] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleCreateClassroom = async () => {
+    if (!nomeTurma.trim()) {
+      setError("O nome da turma é obrigatório.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      await RegisterClassroom(nomeTurma);
+
+      onConfirm();
+    } catch (err) {
+      console.error("Erro ao criar sala:", err);
+      setError(err.message || "Falha ao criar a turma.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <Overlay>
       <Modal>
         <Title>Nova Turma</Title>
+
+        {/* Exibe a mensagem de erro, se houver */}
+        {error && (
+          <p style={{ color: "red", marginBottom: "1rem", fontSize: "0.9em" }}>
+            {error}
+          </p>
+        )}
+
         <Input
           type="text"
           placeholder="Nome da turma"
           value={nomeTurma}
-          onChange={(e) => setNomeTurma(e.target.value)}
+          onChange={(e) => {
+            setNomeTurma(e.target.value);
+            setError(null); // Limpa o erro ao digitar
+          }}
+          disabled={loading}
         />
+
         <ButtonGroup>
-          <Button onClick={() => onConfirm(nomeTurma)}>Criar</Button>
-          <Button onClick={onClose}>Cancelar</Button>
+          <Button
+            onClick={handleCreateClassroom}
+            disabled={loading || !nomeTurma.trim()}
+          >
+            {loading ? "Criando..." : "Criar"}
+          </Button>
+
+          <Button onClick={onClose} disabled={loading}>
+            Cancelar
+          </Button>
         </ButtonGroup>
       </Modal>
     </Overlay>
   );
 }
+
+ModalNovaTurma.propTypes = {
+  onConfirm: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
+};

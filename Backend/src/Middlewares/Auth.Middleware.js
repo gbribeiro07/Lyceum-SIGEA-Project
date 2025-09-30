@@ -14,10 +14,14 @@ const authMiddleware = (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log(
+      "CHAVE SECRETA USADA PARA VERIFICAR (MIDDLEWARE):",
+      process.env.JWT_SECRET.trim()
+    );
+    const decoded = jwt.verify(token, process.env.JWT_SECRET.trim());
     console.log("Token decodificado:", decoded);
     req.user = {
-      id: decoded.id,
+      id: decoded.idUser,
       email: decoded.email,
       nameUser: decoded.nameUser,
     };
@@ -25,6 +29,7 @@ const authMiddleware = (req, res, next) => {
     next();
     console.log("Token decodificado:", decoded);
   } catch (err) {
+    console.error("ERRO JWT REAL:", err);
     return res.status(401).json({
       success: false,
       message: "Token inválido ou expirado!",

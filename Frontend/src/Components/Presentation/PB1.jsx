@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const PB1 = styled.div`  
+const PB1 = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -20,9 +21,16 @@ const BackgroundPattern = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(244, 232, 0, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(244, 232, 0, 0.05) 0%, transparent 50%);
+  background-image: radial-gradient(
+      circle at 20% 80%,
+      rgba(244, 232, 0, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(244, 232, 0, 0.05) 0%,
+      transparent 50%
+    );
 `;
 
 const PB1Content = styled.div`
@@ -37,7 +45,7 @@ const PB1Title = styled.h1`
   font-size: 4.5rem;
   font-weight: 300;
   margin-bottom: 30px;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
   letter-spacing: 3px;
   line-height: 1.1;
 `;
@@ -51,7 +59,7 @@ const PB1Subtitle = styled.h2`
   letter-spacing: 1px;
 `;
 
-const CTAButton = styled.button`
+const CTAButton = styled(Link)`
   background: transparent;
   color: #f4e800;
   border: 2px solid #f4e800;
@@ -62,25 +70,26 @@ const CTAButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  
+  text-decoration: none;
+
   &:hover {
     background: #f4e800;
     color: #000;
   }
 `;
 
-
-export default function PB1Component() { 
+export default function PB1Component() {
   return (
     <PB1 id="hero">
       <BackgroundPattern />
       <PB1Content>
         <PB1Title>LYCEUM</PB1Title>
         <PB1Subtitle>
-          O futuro da gestão acadêmica. Uma plataforma que une tradição universitária 
-          à inovação tecnológica para instituições que valorizam a excelência no ensino.
+          O futuro da gestão acadêmica. Uma plataforma que une tradição
+          universitária à inovação tecnológica para instituições que valorizam a
+          excelência no ensino.
         </PB1Subtitle>
-        <CTAButton>Explore a Plataforma</CTAButton>
+        <CTAButton to="/SignUp">Explore a Plataforma</CTAButton>
       </PB1Content>
     </PB1>
   );

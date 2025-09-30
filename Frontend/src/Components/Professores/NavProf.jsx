@@ -7,13 +7,13 @@ const NavContainer = styled.nav`
 `;
 
 const NavLink = styled(Link)`
-  color: #f4e800;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
   font-family: Arial, sans-serif;
 
   &:hover {
-    text-decoration: underline;
+    color: #ff8c00;
   }
 `;
 
@@ -21,6 +21,7 @@ export default function Nav() {
   return (
     <NavContainer>
       <NavLink to="/home">Home</NavLink>
+      <NavLink to="/professores">Professores</NavLink>
       <NavLink to="/alunos">Alunos</NavLink>
       <NavLink to="/calendario">Calendário</NavLink>
     </NavContainer>

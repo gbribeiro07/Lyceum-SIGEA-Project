@@ -11,6 +11,11 @@ const Profiles = sequelize.define(
     },
     idUser: { type: DataTypes.INTEGER, allowNull: false },
     nameProfile: { type: DataTypes.STRING, allowNull: false },
+    status: {
+      type: DataTypes.ENUM("Professor", "Aluno"),
+      allowNull: false,
+      defaultValue: "Aluno",
+    },
     age: { type: DataTypes.INTEGER, allowNull: true },
     avatar: { type: DataTypes.TEXT, allowNull: true },
     dateCreated: {

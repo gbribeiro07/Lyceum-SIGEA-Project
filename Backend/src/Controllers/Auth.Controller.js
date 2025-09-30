@@ -80,14 +80,18 @@ const AuthController = {
         });
       }
 
+      console.log(
+        "CHAVE SECRETA USADA PARA ASSINAR (LOGIN):",
+        process.env.JWT_SECRET.trim()
+      );
+
       const accessToken = jwt.sign(
         {
           id: user.idUser,
           email: user.email,
           nameUser: user.nameUser,
-          path: "/",
         },
-        process.env.JWT_SECRET,
+        process.env.JWT_SECRET.trim(),
         { expiresIn: process.env.JWT_EXPIRATION }
       );
 
@@ -96,25 +100,23 @@ const AuthController = {
           id: user.idUser,
           email: user.email,
           nameUser: user.nameUser,
-          path: "/",
         },
-        process.env.JWT_REFRESH_SECRET,
+        process.env.JWT_REFRESH_SECRET.trim(),
         { expiresIn: process.env.JWT_REFRESH_EXPIRATION }
       );
 
       res.cookie("accessToken", accessToken, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "Strict" : "Lax",
+        secure: false,
+        sameSite: "Lax",
         maxAge: process.env.JWT_EXPIRATION * 1000,
-        path: "/",
       });
 
       // Define o refreshToken em um cookie HTTP-only seguro
       res.cookie("refreshToken", refreshToken, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: process.env.NODE_ENV === "production" ? "Strict" : "Lax",
+        secure: false,
+        sameSite: "Lax",
         maxAge: process.env.JWT_REFRESH_EXPIRATION * 1000,
       });
 

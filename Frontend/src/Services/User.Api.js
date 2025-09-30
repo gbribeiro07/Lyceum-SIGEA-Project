@@ -33,7 +33,7 @@ export async function verifyEmailUser(email, VerificationCode) {
   return response.json();
 }
 
-// Verificação do código enviado por e-mail
+// Pegar dados básicos do usuário
 export async function getUser() {
   try {
     const response = await fetch(`${RATIO_API_URL}/UserBasics`, {

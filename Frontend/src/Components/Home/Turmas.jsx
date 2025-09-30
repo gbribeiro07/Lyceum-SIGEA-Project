@@ -6,10 +6,10 @@ import styled from "styled-components";
 
 const TurmasContainer = styled.div`
   padding: 20px;
-  background-color: #121212;
+  background-color: #171717;
 `;
 
-const HeaderTurmas = styled.div`    
+const HeaderTurmas = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,8 +68,18 @@ export default function Turmas() {
         />
       ))}
 
-      {showModalTurma && <ModalNovaTurma onConfirm={adicionarTurma} onClose={() => setShowModalTurma(false)} />}
-      {showModalPessoa && <ModalAdicionarPessoa onConfirm={adicionarPessoa} onClose={() => setShowModalPessoa(false)} />}
+      {showModalTurma && (
+        <ModalNovaTurma
+          onConfirm={adicionarTurma}
+          onClose={() => setShowModalTurma(false)}
+        />
+      )}
+      {showModalPessoa && (
+        <ModalAdicionarPessoa
+          onConfirm={adicionarPessoa}
+          onClose={() => setShowModalPessoa(false)}
+        />
+      )}
     </TurmasContainer>
   );
 }

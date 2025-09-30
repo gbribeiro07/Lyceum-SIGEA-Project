@@ -13,7 +13,7 @@ import SignUpPage from "./Components/SignUp/SignUpPage";
 import Header from "./Components/Home/Header";
 
 import HTitle from "./Components/Home/HTitle";
-import HB1 from "./Components/Home/HB1";
+// import HB1 from "./Components/Home/HB1";
 import GlobalStyle from "../GlobalStyle";
 import Nav from "./Components/Home/Nav";
 import Turmas from "./Components/Home/Turmas";
@@ -49,6 +49,7 @@ export default function Presentation() {
 export function Login() {
   return (
     <>
+      <GlobalStyle />
       <LoginPage></LoginPage>
     </>
   );
@@ -57,6 +58,7 @@ export function Login() {
 export function SignUp() {
   return (
     <>
+      <GlobalStyle />
       <SignUpPage></SignUpPage>
     </>
   );
@@ -65,49 +67,50 @@ export function SignUp() {
 export function Home() {
   return (
     <>
-     <div style={{ backgroundColor: '#000', minHeight: '100vh' }}>
-      
-      <Header>
-        <HTitle>Lyceum</HTitle>
-        <Nav />
-      </Header>
-      <Turmas />
-      
-     </div>
+      <GlobalStyle />
+      <div style={{ backgroundColor: "#101010", minHeight: "100vh" }}>
+        <Header>
+          <HTitle>Lyceum</HTitle>
+          <Nav />
+        </Header>
+        <Turmas />
+      </div>
     </>
   );
 }
 
-export function Professores () {
+export function Professores() {
   return (
     <>
+      <GlobalStyle />
       <ProfessoresHeader>
         <HTitle>Professores</HTitle>
         <NavProf />
       </ProfessoresHeader>
       <ProfessoresBody />
-
     </>
-  )
+  );
 }
 
-export function CalendarioPage () {
+export function CalendarioPage() {
   return (
     <>
-        <div style={{ backgroundColor: '#000', minHeight: '100vh' }}>
+      <GlobalStyle />
+      <div style={{ backgroundColor: "#101010", minHeight: "100vh" }}>
         <Header>
-        <HTitle>Calendário</HTitle>
-        <NavCalendario />
-      </Header>
-      <Calendario />
-        </div>
+          <HTitle>Calendário</HTitle>
+          <NavCalendario />
+        </Header>
+        <Calendario />
+      </div>
     </>
-  )
+  );
 }
 
 export function AlunosPage() {
   return (
     <>
+      <GlobalStyle />
       <Header>
         <HTitle>Alunos</HTitle>
         <NavAlunos />

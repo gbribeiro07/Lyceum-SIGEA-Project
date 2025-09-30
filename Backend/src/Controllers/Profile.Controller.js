@@ -4,7 +4,7 @@ require("dotenv").config();
 const ProfileController = {
   // Cadastrar perfil
   async RegisterProfile(req, res) {
-    const { nameProfile, age, avatar } = req.body;
+    const { nameProfile, age, status, avatar } = req.body;
 
     // Garante que o usuário está autenticado
     if (!req.user || !req.user.id) {
@@ -21,6 +21,13 @@ const ProfileController = {
       });
     }
 
+    if (!status?.trim()) {
+      return res.status(400).json({
+        success: false,
+        message: "O status do perfil é obrigatório.",
+      });
+    }
+
     if (age && (age < 0 || age > 120)) {
       return res.status(400).json({
         success: false,
@@ -32,6 +39,7 @@ const ProfileController = {
       const newProfile = await Profiles.create({
         nameProfile,
         age,
+        status,
         avatar,
         idUser: req.user.id,
       });
@@ -70,6 +78,7 @@ const ProfileController = {
 
       const allProfiles = await Profiles.findAll({
         where: { idUser: req.user.id },
+        attributes: ["idProfile", "nameProfile", "status", "age", "avatar"],
         order: [[orderBy, order.toUpperCase()]],
       });
 
@@ -78,6 +87,24 @@ const ProfileController = {
       return res.status(500).json({
         success: false,
         message: "Erro ao buscar perfis.",
+        error: err.message,
+      });
+    }
+  }, // Listar perfis para seleção ao criar sala de aula
+
+  async ListProfilesForSelection(req, res) {
+    try {
+      const availableProfiles = await Profiles.findAll({
+        where: { idUser: req.user.id },
+        attributes: ["idProfile", "nameProfile", "status"],
+        order: [["nameProfile", "ASC"]],
+      });
+
+      return res.json({ success: true, data: availableProfiles });
+    } catch (err) {
+      return res.status(500).json({
+        success: false,
+        message: "Erro ao buscar perfis para seleção.",
         error: err.message,
       });
     }
@@ -113,7 +140,7 @@ const ProfileController = {
   // atualizar perfil
   async UpdateProfile(req, res) {
     const { id } = req.params;
-    const { nameProfile, age, avatar } = req.body;
+    const { nameProfile, age, status, avatar } = req.body;
 
     if (!req.user || !req.user.id) {
       return res.status(401).json({
@@ -142,6 +169,7 @@ const ProfileController = {
       // Atualiza os campos apenas se foram enviados
       profile.nameProfile = nameProfile ?? profile.nameProfile;
       profile.age = age ?? profile.age;
+      profile.status = status ?? profile.status;
       profile.avatar = avatar ?? profile.avatar;
 
       await profile.save();

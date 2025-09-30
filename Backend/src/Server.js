@@ -7,6 +7,9 @@ const sequelize = require("./Config/Db");
 const cookieParser = require("cookie-parser");
 const userRoutes = require("./Routes/User.Route");
 const authRoutes = require("./Routes/Auth.Route");
+const profileRoutes = require("./Routes/Profile.Route");
+const classroomsRoutes = require("./Routes/Classrooms.Route");
+const ClassroomMembersRoutes = require("./Routes/CM.Route");
 
 const port = process.env.PORT || 3001;
 
@@ -23,8 +26,11 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(cookieParser());
 
 // Rotas
-app.use("/Ratio", userRoutes);
-app.use("/Ratio", authRoutes);
+app.use("/Lyceum", userRoutes);
+app.use("/Lyceum", authRoutes);
+app.use("/Lyceum", profileRoutes);
+app.use("/Lyceum", classroomsRoutes);
+app.use("/Lyceum", ClassroomMembersRoutes);
 
 // Testa conexão com o banco e inicia o servidor
 sequelize

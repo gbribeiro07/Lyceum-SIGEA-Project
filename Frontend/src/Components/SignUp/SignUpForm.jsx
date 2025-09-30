@@ -5,77 +5,64 @@ import { registerUser } from "../../Services/User.Api";
 import { verifyEmailUser } from "../../Services/User.Api";
 
 const FormContainer = styled.form`
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(244, 232, 0, 0.2);
-  padding: 50px;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 600px;
-  margin: 100px auto;
+  background-color: #3a322d;
+  padding: 70px;
+  border-radius: 10px;
+  width: 600px;
   text-align: center;
-  color: #fff;
-  font-family: 'Georgia', serif;
-  backdrop-filter: blur(8px);
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: auto;
+  margin-top: 100px;
 `;
 
 const Title = styled.h2`
-  font-size: 2.8rem;
-  font-weight: 300;
-  color: #f4e800;
-  margin-bottom: 30px;
-  letter-spacing: 2px;
+  font-weight: bold;
 `;
 
 const Label = styled.label`
   display: block;
   margin: 15px 0 5px;
-  font-weight: 300;
+  font-weight: bold;
   text-align: left;
-  color: rgba(255, 255, 255, 0.8);
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #f4e800;
-  border-radius: 6px;
-  background-color: #1a1a1a;
-  color: #fff;
-  font-size: 1rem;
-  margin-bottom: 20px;
-
-  &::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-  }
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #d3d3d3;
 `;
 
 const SubmitButton = styled.button`
+  margin-top: 20px;
+  display: block;
   width: 100%;
-  padding: 12px;
-  background: transparent;
-  color: #f4e800;
-  border: 2px solid #f4e800;
-  font-size: 1.1rem;
-  font-weight: 300;
-  letter-spacing: 2px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 10px;
+  background-color: #00cc66;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  border-radius: 6px;
+  text-decoration: none;
 
   &:hover {
-    background: #f4e800;
-    color: #000;
+    background-color: #00994d;
   }
 `;
 
 const BackLink = styled(Link)`
   display: block;
   margin-top: 20px;
-  font-size: 0.9rem;
-  color: #f4e800;
+  margin-bottom: -10px;
+  font-size: 14px;
+  color: black;
   text-decoration: none;
-  font-weight: 300;
+  font-weight: bold;
 
   &:before {
     content: "← ";
@@ -83,35 +70,128 @@ const BackLink = styled(Link)`
 
   &:hover {
     text-decoration: underline;
-    color: #fff200;
+    color: blueviolet;
   }
 `;
 
+const ModalFundo = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 const ModalConteúdo = styled.div`
-  background: #1a1a1a;
-  border: 1px solid #f4e800;
-  width: 90%;
-  max-width: 600px;
-  padding: 40px;
-  border-radius: 12px;
-  color: #fff;
-  font-family: 'Georgia', serif;
+  background-color: #dcdcdc;
+  width: 75vw;
+  height: 85vh;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px 70px;
+  position: relative;
+
+  @media (max-width: 1800px) {
+    width: 70vw;
+    height: 82vh;
+  }
 `;
 
 const TítuloModal = styled.h2`
-  font-size: 2rem;
-  font-weight: 300;
-  color: #f4e800;
-  margin-bottom: 30px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
   text-align: center;
+  vertical-align: top;
+  margin-bottom: 30px;
+
+  @media (max-width: 1225px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 980px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 810px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 740px) {
+    font-size: 17px;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 12px;
+  }
 `;
 
-const CodeSubButton = styled(SubmitButton)`
-  width: 100%;
+const CodeSubButton = styled.button`
   margin-top: 20px;
+  display: block;
+  width: 250px;
+  height: 40px;
+  margin-top: 5vh;
+  margin-left: 25vw;
+  padding: 10px;
+  background-color: #00cc66;
+  color: white;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #00994d;
+  }
+
+  @media (max-width: 1800px) {
+    margin-top: 2vh;
+    margin-left: 23vw;
+  }
+
+  @media (max-width: 1225px) {
+    margin-left: 15vw;
+    width: 230px;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 980px) {
+    margin-left: 10vw;
+    width: 220px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 810px) {
+    margin-left: 7vw;
+    width: 210px;
+    height: 35px;
+    font-size: 13.5px;
+  }
+
+  @media (max-width: 740px) {
+    margin-left: 4vw;
+    width: 200px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 490px) {
+    margin-left: 2vw;
+    width: 160px;
+    height: 25px;
+    font-size: 9px;
+  }
 `;
-
-
 
 export default function SignUpForm() {
   //estados para armazenar os valores dos Inputs
