@@ -37,19 +37,19 @@ Para rodar o Fronetend do projeto, basta ir ao terminal, acessar a pasta "Fronte
 
 Para rodar o Backend, primeiro será necessário ir ao terminal, acessar a pasta "Backend", instalar as dependências necessárias com a linha "npm install" e criar um arquivo ".env" com as variáveis necessárias (estas que se encontram nos arquivos do Backend). Para facilitar, abaixo está a lista delas:
 
-PORT=porta em que roda o backend localmente
-CORS_ORIGIN=origem do Frontend (local)
-DB_NAME=nome do banco de dados
-DB_USER=nome do usuário do banco de dados
-DB_PASSWORD=senha do banco de dados
-DB_HOST=localhost
-EMAIL_SUPPORT=endereço de email que enviará email de verificação para usuário
-EMAIL_PASS=senha do endereço de email (recomenda-se que se coloque aqui a "senha para aplicativos" fornecida pela Google aos usuários de Gmail que a solicitarem)
-JWT_SECRET=hash de 64 caracteres
-JWT_EXPIRATION=3600
-JWT_REFRESH_SECRET=outro hash de 64 caracteres
-JWT_REFRESH_EXPIRATION=2592000
-LYCEUM_API_URL=http://localhost:3001/Lyceum
-NODE_ENV=false
+- PORT=porta em que roda o backend localmente
+- CORS_ORIGIN=origem do Frontend (local)
+- DB_NAME=nome do banco de dados
+- DB_USER=nome do usuário do banco de dados
+- DB_PASSWORD=senha do banco de dados
+- DB_HOST=localhost
+- EMAIL_SUPPORT=endereço de email que enviará email de verificação para usuário
+- EMAIL_PASS=senha do endereço de email (recomenda-se que se coloque aqui a "senha para aplicativos" fornecida pela Google aos usuários de Gmail que a solicitarem)
+- JWT_SECRET=hash de 64 caracteres
+- JWT_EXPIRATION=3600
+- JWT_REFRESH_SECRET=outro hash de 64 caracteres
+- JWT_REFRESH_EXPIRATION=2592000
+- LYCEUM_API_URL=http://localhost:3001/Lyceum
+- NODE_ENV=false
 
 Após isso, é necessário copiar e colar a estrtura do banco de dados e criá-lo na sua máquina, dentro do aplicativo "MySQL". Por fim, se todas as etapas anteriores foram concluídas, basta aplicar "npm start" dentro da pasta "Backend", no terminal, para rodar.
