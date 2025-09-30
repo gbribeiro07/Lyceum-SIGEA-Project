@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const Card = styled.div`
   background-color: white;
@@ -32,3 +33,13 @@ export default function TurmaCard({ turma, onAddPessoa }) {
     </Card>
   );
 }
+
+TurmaCard.propTypes = {
+  onConfirm: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onAddPessoa: PropTypes.func.isRequired,
+  turma: PropTypes.shape({
+    nome: PropTypes.string.isRequired,
+    pessoas: PropTypes.arrayOf,
+  }).isRequired,
+};
