@@ -38,8 +38,6 @@ CREATE TABLE Contents (
 CREATE TABLE Classrooms (
     idClassroom INT AUTO_INCREMENT PRIMARY KEY,
     idUser INT NOT NULL,
-    idProfile INT NOT NULL,
     nameClassroom VACHAR(100) NOT NULL,
     FOREIGN KEY (idUser) REFERENCES User(idUser)
-    FOREIGN KEY (idProfile) REFERENCES Profiles(idProfile)
 )

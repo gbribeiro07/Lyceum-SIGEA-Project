@@ -10,13 +10,7 @@ const Classrooms = sequelize.define(
       autoIncrement: true,
     },
     idUser: { type: DataTypes.INTEGER, allowNull: false },
-    idProfile: { type: DataTypes.INTEGER, allowNull: false },
     nameClassroom: { type: DataTypes.STRING, allowNull: false },
-    date_at_create: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
   },
   {
     tableName: "Classrooms",
@@ -27,8 +21,5 @@ const Classrooms = sequelize.define(
 
 const User = require("./User.Model");
 Classrooms.belongsTo(User, { foreignKey: "idUser" });
-
-const Profiles = require("./Profiles.Model");
-Classrooms.belongsTo(Profiles, { foreignKey: "idProfile" });
 
 module.exports = Classrooms;

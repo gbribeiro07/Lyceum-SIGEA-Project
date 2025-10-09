@@ -25,7 +25,6 @@ const ClassroomsController = {
       const newClassroom = await Classrooms.create({
         nameClassroom,
         idUser: req.user.id,
-        idProfile: req.body.idProfile,
       });
 
       return res.status(201).json({
@@ -34,9 +33,10 @@ const ClassroomsController = {
         data: newClassroom,
       });
     } catch (err) {
+      console.error("ERRO COMPLETO DO SEQUELIZE:", err);
       return res.status(500).json({
         success: false,
-        message: "Erro ao cadastrar o sala de aula.",
+        message: "Erro ao cadastrar a sala de aula.",
         error: err.message,
       });
     }
@@ -45,9 +45,9 @@ const ClassroomsController = {
   //listar perfil
   async ListClassroom(req, res) {
     try {
-      const { orderBy = "dateCreated", order = "ASC" } = req.query;
+      const { order = "ASC" } = req.query;
 
-      const validFields = ["nameProfile", "dateCreated"];
+      const validFields = ["nameProfile"];
       const validOrders = ["ASC", "DESC"];
 
       if (

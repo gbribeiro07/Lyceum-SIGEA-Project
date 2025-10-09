@@ -15,7 +15,10 @@ const AuthController = {
     }
 
     try {
-      const decoded = jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET);
+      const decoded = jwt.verify(
+        refreshToken,
+        process.env.JWT_REFRESH_SECRET.trim()
+      );
 
       // Opcional: checar se o usuário ainda existe no banco
       const user = await User.findOne({ where: { id: decoded.idUser } });
@@ -28,7 +31,7 @@ const AuthController = {
       // Gera novo access token
       const newAccessToken = jwt.sign(
         { id: user.idUser, email: user.email, nameUser: user.nameUser },
-        process.env.JWT_SECRET,
+        process.env.JWT_SECRET.trim(),
         { expiresIn: process.env.JWT_EXPIRATION }
       );
 
@@ -85,6 +88,8 @@ const AuthController = {
         process.env.JWT_SECRET.trim()
       );
 
+      console.log("VALOR DE EXPIRACAO USADO:", process.env.JWT_EXPIRATION);
+
       const accessToken = jwt.sign(
         {
           id: user.idUser,
@@ -109,7 +114,6 @@ const AuthController = {
         httpOnly: true,
         secure: false,
         sameSite: "Lax",
-        maxAge: process.env.JWT_EXPIRATION * 1000,
       });
 
       // Define o refreshToken em um cookie HTTP-only seguro
@@ -117,7 +121,6 @@ const AuthController = {
         httpOnly: true,
         secure: false,
         sameSite: "Lax",
-        maxAge: process.env.JWT_REFRESH_EXPIRATION * 1000,
       });
 
       return res.status(200).json({
